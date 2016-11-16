@@ -1,7 +1,7 @@
 ; A simple boot sector program that includes a separate asm file and calls
 ; a function in it.
 
-mov bp, 0x8000  ; Set base of stack past where BIOS loads our boot sector
+mov bp, 0x8000
 mov sp, bp
 
 mov bx, HELLO_MSG ; bx will be the arg parameter for the lib function

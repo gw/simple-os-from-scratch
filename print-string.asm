@@ -4,7 +4,8 @@
 
 ; Make [] derefs relative to this address--otherwise the assembler treats
 ; addresses in [] as relative to the beginning of RAM. 0x7c00 is usually
-; where BIOSes load boot sectors.
+; where BIOSes load boot sectors. I think this is only used with the raw bin
+; output format.
 [org 0x7c00]
 
 
@@ -14,6 +15,7 @@ print_string:
   mov ah, 0x0e  ; Scrolling TTY BIOS routine
 
   compare:
+    ; Load byte at bx
     mov al, [bx] ; Assembles into 0x7c00 + (whatever offset is in bx)
 
     ; Exit on null-byte
